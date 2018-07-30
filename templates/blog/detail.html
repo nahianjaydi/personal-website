@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <img src="{{ blog.image.url }}" class="rounded img-fluid" alt="">
+            </div>
+        </section>
+        <div class="container">
+            <h2>{{ blog.title }}</h2>
+            <small>{{ blog.pub_date }}</small>
+            <hr>
+            <div>
+                <p>{{ blog.body }}</p>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

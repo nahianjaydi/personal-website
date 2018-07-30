@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Welcome to Nahian's Blog.</h1>
+                <p class="lead text-muted"> Here you will find all the latest blog posts.</p>
+            </div>
+        </section>
+        <div class="container">
+            <h2>Latest Posts</h2>
+            <hr>
+            {% for blog in blogs.all %}
+                <div class="clearfix mb-5">
+                    <a href="{% url 'detail' blog.id %}">
+                        <h5 class="mb-0">{{ blog.title }}</h5>
+                    </a>
+                    <small>{{ blog.pub_date }}</small>
+                    <br>
+                    <div>
+                        <img src="{{ blog.image.url }}" class="rounded small-img img-fluid float-left mt-2 mr-3" alt="">
+                        <p>{{ blog.summary|truncatewords:40 }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </main>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block body %}
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <img class="rounded-circle img-fluid" src="{% static 'nahian-pic.jpg' %}" alt="">
+                <h1 class="jumbotron-heading">Hi, I am Nahian Jaydi.</h1>
+                <h6 class="text-success">Software Engineer and Web Developer</h6>
+                <p class="lead text-muted">Welcome to my personal web page. Here you will find all my information. For further enquiries please contact me through email.</p>
+                <p>
+                    <a href="mailto:nahianjaydi@gmail.com" class="btn btn-primary my-2">Email</a>
+                </p>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row justify-content-center">
+                    {% for project in projects.all %}
+                    <div class="col-md-4 card-deck">
+                        <div class=" card mb-4 box-shadow">
+                            <img class=" card-img card-img-top" src="{{ project.image.url }}">
+                            <div class="card-body">
+                                <h5><a href="{{ project.project_github_link}}" target="_blank">{{ project.title }}</a></h5>
+                                <p class="card-text">{{ project.summary }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}
